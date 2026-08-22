@@ -1,0 +1,6 @@
+.git
+.git/**
+wrangler.toml
+LEEME.md
+.DS_Store
+Thumbs.db
