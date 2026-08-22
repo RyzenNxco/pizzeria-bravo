@@ -104,15 +104,15 @@ window.CATALOGO = (() => {
     { id: 'muzzarella',   name: 'Muzzarella',                 price: 15000, ok: true, img: 'muzzarella',       tone: 'muzza',   badge: 'La clásica',        desc: 'Salsa de tomate, muzzarella, aceitunas y orégano.' },
     { id: 'jamon',        name: 'Jamón',                      price: 17000, ok: true, tone: 'jamon',                                desc: 'Muzzarella y jamón cocido.' },
     { id: 'jamon-morron', name: 'Jamón con morrones',         price: 18000, ok: true, img: 'jamon-morron',     tone: 'jymor',   badge: 'La más pedida',     desc: 'Muzzarella, jamón cocido y morrones asados.' },
-    { id: 'jamon-napo',   name: 'Jamón a la napolitana',      price: 18000, ok: true, tone: 'napo',                                 desc: 'Jamón, rodajas de tomate, ajo y orégano.' },
+    { id: 'jamon-napo',   name: 'Jamón a la napolitana',      price: 18000, ok: true, img: 'jamon-napo',       tone: 'napo',                                 desc: 'Jamón, rodajas de tomate, ajo y orégano.' },
     { id: 'napolitana',   name: 'Napolitana',                 price: 17000, ok: true, img: 'napolitana',       tone: 'napo',                                 desc: 'Muzzarella, rodajas de tomate, ajo y perejil.' },
-    { id: 'fugazzeta',    name: 'Fugazzeta',                  price: 17000, ok: true, tone: 'fugaz',                                desc: 'Doble muzzarella, mucha cebolla y orégano.' },
+    { id: 'fugazzeta',    name: 'Fugazzeta',                  price: 17000, ok: true, img: 'fugazzeta',        tone: 'fugaz',                                desc: 'Doble muzzarella, mucha cebolla y orégano.' },
     { id: 'provolone',    name: 'Provolone',                  price: 17000, ok: true, img: 'provolone',        tone: 'quesos',                               desc: 'Provolone fundido y orégano.' },
-    { id: 'roquefort',    name: 'Roquefort',                  price: 17000, ok: true, tone: 'roque',                                desc: 'Muzzarella y roquefort, con aceitunas.' },
+    { id: 'roquefort',    name: 'Roquefort',                  price: 17000, ok: true, img: 'roquefort',        tone: 'roque',                                desc: 'Muzzarella y roquefort, con aceitunas.' },
     /* Sumada a partir de fotos reales del local: se ve seguido combinada con
        roquefort o morrones en pedidos de dos gustos. Precio estimado — el
        local todavía no lo pasó. */
-    { id: 'jamon-crudo',  name: 'Jamón crudo',                price: 19000,           tone: 'jamon',                                desc: 'Muzzarella, jamón crudo y aceitunas.' },
+    { id: 'jamon-crudo',  name: 'Jamón crudo',                price: 19000,           img: 'jamon-crudo',      tone: 'jamon',                                desc: 'Muzzarella, jamón crudo y aceitunas.' },
     { id: 'choclo',       name: 'Choclo',                     price: 17000, ok: true, img: 'choclo',           tone: 'choclo',                               desc: 'Muzzarella, choclo y salsa blanca.' },
     { id: 'calabresa',    name: 'Calabresa',                  price: 18000, ok: true, img: 'calabresa',        tone: 'bravo',                                desc: 'Muzzarella y longaniza calabresa.' },
     { id: 'bondiola',     name: 'Bondiola',                   price: 18000, ok: true, img: 'bondiola',         tone: 'panceta',                              desc: 'Muzzarella y bondiola desmenuzada.' },
