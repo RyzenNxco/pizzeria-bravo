@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#17100C">
+
+<title>Pizzería Bravo · Pizza al corte en José C. Paz</title>
+<meta name="description" content="Pizzería de barrio en Lavalle 2139, José C. Paz. Pizza al horno hasta de 4 gustos, empanadas de carne a cuchillo, milanesas al plato y hamburguesas. Armá el pedido y mandalo por WhatsApp.">
+
+<meta property="og:type" content="restaurant">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="Pizzería Bravo">
+<meta property="og:title" content="Pizzería Bravo · Pizza al corte en José C. Paz">
+<meta property="og:description" content="Armá tu pizza hasta de 4 gustos. Empanadas, milanesas y hamburguesas. Pedido por WhatsApp, listo cuando llegás.">
+<meta property="og:image" content="/img/cuatro-gustos.webp">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..700&family=Caveat:wght@500;700&display=swap">
+<link rel="stylesheet" href="/css/estilos.css">
+<link rel="preload" as="image" href="/img/cuatro-gustos.webp" fetchpriority="high">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%2317100C'/%3E%3Ccircle cx='16' cy='16' r='11' fill='%23E9A426'/%3E%3Ccircle cx='12' cy='13' r='2.2' fill='%23C62B18'/%3E%3Ccircle cx='20' cy='17' r='2.2' fill='%23C62B18'/%3E%3Ccircle cx='14' cy='21' r='1.8' fill='%23C62B18'/%3E%3C/svg%3E">
+
+<!-- Los datos estructurados (Restaurant + FAQPage) no van escritos acá: los arma
+     app.js en base a catalogo.js apenas carga la página, así siempre están al
+     día con el nombre, la dirección y los horarios reales del negocio. -->
+<script type="application/ld+json" id="ldNegocio">{}</script>
+<script type="application/ld+json" id="ldFaq">{}</script>
+</head>
+
+<body>
+
+<a class="skip" href="#carta">Ir directo al menú</a>
+
+<!-- ─────────────────────────────────  cinta  ───────────────────────────── -->
+<div class="cinta">
+  <div class="cinta-in">
+    <span class="estado" id="estadoCinta"><i class="punto"></i><span id="estadoTxt">Consultando horario…</span></span>
+    <span class="cinta-sep" aria-hidden="true">·</span>
+    <a class="cinta-link" id="mapaCinta" data-campo="direccion" target="_blank" rel="noopener">Lavalle 2139, José C. Paz</a>
+    <span class="cinta-sep" aria-hidden="true">·</span>
+    <a class="cinta-link" data-wa-link data-wa-numero target="_blank" rel="noopener">11 7640 4401</a>
+    <span class="cinta-sep ocultable" aria-hidden="true">·</span>
+    <span class="cinta-nota ocultable">Retiro y delivery en la zona</span>
+  </div>
+</div>
+
+<!-- ──────────────────────────────────  nav  ────────────────────────────── -->
+<header class="nav" id="nav">
+  <a class="marca" href="#top" id="marcaLink">
+    <span class="marca-sello" aria-hidden="true">
+      <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" class="sb"/><circle cx="20" cy="20" r="13" class="sm"/><circle cx="15.5" cy="16.5" r="2.6" class="ss"/><circle cx="25" cy="21" r="2.6" class="ss"/><circle cx="18" cy="26" r="2.1" class="ss"/></svg>
+    </span>
+    <span class="marca-txt">
+      <span class="marca-nombre" data-campo="nombre">Bravo</span>
+      <span class="marca-bajada" data-campo="bajada">pizza al corte · desde el barrio</span>
+    </span>
+  </a>
+
+  <nav class="nav-links" aria-label="Secciones del sitio">
+    <a href="#promos">Promos</a>
+    <a href="#carta">Menú</a>
+    <a href="#local">El local</a>
+    <a href="#resenas">Reseñas</a>
+    <a href="#horarios">Horarios</a>
+  </nav>
+
+  <div class="nav-acciones">
+    <button class="btn-icono" id="temaBtn" type="button" aria-label="Cambiar entre tema claro y oscuro">
+      <span class="ico" id="temaIco"></span><span class="btn-icono-txt" id="temaTxt">Noche</span>
+    </button>
+    <button class="btn-pedido" id="pedidoBtn" type="button" aria-label="Abrir tu pedido">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      <span>Pedido</span><span class="pedido-n" id="pedidoN" hidden>0</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ─────────────────────────────  portada  ───────────────────────────── -->
+  <section class="hero">
+    <div class="hero-txt">
+      <p class="antetitulo"><i class="chispa" aria-hidden="true"></i> Horno prendido desde las 19:30</p>
+
+      <h1>Armá tu pizza<br>hasta de <em>4&nbsp;gustos</em>.</h1>
+
+      <p class="bajada">Masa del día, muzzarella que se estira y el horno a full toda la noche. Pizza al corte, empanadas de carne a cuchillo, milanesas al plato y hamburguesas — en <span data-campo="direccion">Lavalle 2139, José C. Paz</span>.</p>
+
+      <div class="hero-botones">
+        <a class="btn btn-lleno btn-gr" href="#carta">Ver el menú</a>
+        <button class="btn btn-linea btn-gr" type="button" id="heroPedidoBtn">Armar mi pedido</button>
+      </div>
+
+      <dl class="hero-datos">
+        <div><dt>En Google</dt><dd><span class="estrellas" aria-hidden="true">★★★★★</span> <span id="datoGoogle">4,9 · 27 reseñas</span></dd></div>
+        <div><dt>En la carta</dt><dd><span id="datoGustos">22</span> gustos de pizza</dd></div>
+        <div><dt>Pedidos</dt><dd>WhatsApp · retiro o delivery</dd></div>
+      </dl>
+    </div>
+
+    <figure class="hero-foto">
+      <img id="fotoHero" src="/img/cuatro-gustos.webp" alt="Pizza de cuatro gustos recién salida del horno" width="1000" height="750" fetchpriority="high" decoding="async">
+      <figcaption class="hero-chapa">
+        <span class="chapa-num">4</span>
+        <span class="chapa-txt">gustos<br>en una</span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ──────────────────────────────  sellos  ───────────────────────────── -->
+  <section class="sellos" aria-label="Cómo trabajamos">
+    <div class="sello">
+      <span class="sello-ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c1.5 2.5.5 4-1 5.5S9 11 10.5 13"/><path d="M17 6c1 1.8.3 3-.8 4"/><path d="M4 14h16v2a6 6 0 0 1-6 6h-4a6 6 0 0 1-6-6z"/></svg>
+      </span>
+      <h3>Horno a full</h3>
+      <p>Todo se hace a pedido. La pizza sale del horno y va derecho a la caja.</p>
+    </div>
+    <div class="sello">
+      <span class="sello-ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 18 0"/><path d="M3 12h18"/><circle cx="8.5" cy="8.5" r="1.4"/><circle cx="15" cy="7.6" r="1.4"/><circle cx="12" cy="10.6" r="1.4"/></svg>
+      </span>
+      <h3>Masa del día</h3>
+      <p>Se amasa acá, todos los días. Nada congelado, nada de ayer.</p>
+    </div>
+    <div class="sello">
+      <span class="sello-ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 20.5l1.6-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>
+      </span>
+      <h3>Pedís y listo</h3>
+      <p>Armás el pedido acá, nos llega por WhatsApp y lo tenés listo cuando llegás.</p>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────  promos  ───────────────────────────── -->
+  <section class="promos" id="promos">
+    <div class="seccion-cabeza">
+      <div>
+        <p class="antetitulo antetitulo-oscuro">Combos de la casa</p>
+        <h2>Las promos que se piden solas</h2>
+      </div>
+      <p class="seccion-nota">Combos pensados para dos o para toda la mesa.<br><span class="clave-precio"><b>•</b> precio estimado, se confirma con el local</span></p>
+    </div>
+    <div class="promos-grilla" id="promosGrilla"></div>
+  </section>
+
+  <!-- ───────────────────────────────  carta  ───────────────────────────── -->
+  <section class="carta" id="carta">
+    <div class="seccion-cabeza">
+      <div>
+        <p class="antetitulo antetitulo-oscuro">La carta</p>
+        <h2>Elegí, armá y mandá el pedido</h2>
+      </div>
+      <p class="seccion-nota">Todo se hace a pedido y las pizzas van enteras.<br><span class="clave-precio"><b>•</b> precio estimado, se confirma con el local</span></p>
+    </div>
+
+    <div class="carta-controles">
+      <div class="pastillas" id="pastillas" role="tablist" aria-label="Categorías del menú"></div>
+      <div class="buscador">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="buscar" placeholder="Buscar muzzarella, panceta, flan…" aria-label="Buscar en el menú" autocomplete="off">
+        <button type="button" class="buscar-x" id="buscarX" hidden aria-label="Borrar la búsqueda">×</button>
+      </div>
+    </div>
+
+    <p class="contador" id="contador" role="status" aria-live="polite"></p>
+    <div class="grilla" id="grilla"></div>
+    <p class="vacio" id="vacio" hidden>No encontramos nada con eso. Probá con otra palabra o mirá las demás categorías.</p>
+  </section>
+
+  <!-- ───────────────────────────────  local  ───────────────────────────── -->
+  <section class="local" id="local">
+    <div class="local-in">
+
+      <div class="local-fotos">
+        <figure class="foto foto-a"><img id="fotoFachada" src="/img/local-fachada.webp" alt="Frente del local sobre la calle" loading="lazy" decoding="async"></figure>
+        <figure class="foto foto-b"><img id="fotoInterior" src="/img/local-interior.webp" alt="El salón por dentro" loading="lazy" decoding="async"></figure>
+        <p class="firma">nos vemos en el mostrador</p>
+      </div>
+
+      <div class="local-txt">
+        <p class="antetitulo">El local</p>
+        <h2 id="localTitulo">Lavalle 2139,<br><em>José C. Paz</em>.</h2>
+        <p class="local-p">Somos la pizzería del barrio: se pide en el mostrador, se espera charlando y se vuelve con la caja caliente. Si estás cerca, también te la llevamos.</p>
+
+        <ul class="local-datos">
+          <li><span>Dirección</span><span data-campo="direccion">Lavalle 2139, José C. Paz</span></li>
+          <li><span>Pedidos</span><span><a data-wa-link data-wa-numero target="_blank" rel="noopener">11 7640 4401</a></span></li>
+          <li><span>Instagram</span><span><a data-ig-link target="_blank" rel="noopener">@pizzabravo.jcp</a></span></li>
+          <li><span>Formas de pago</span><span id="datoPagos">Efectivo y transferencia</span></li>
+          <li><span>Demora</span><span id="datoDemora">30 a 45 min</span></li>
+        </ul>
+
+        <details class="horarios" id="horarios">
+          <summary>
+            <span class="horario-hoy" id="horarioHoy"></span>
+            <span class="horario-abrir">Ver la semana</span>
+          </summary>
+          <table class="semana"><tbody id="horarioSemana"></tbody></table>
+        </details>
+
+        <div class="local-botones">
+          <a class="btn btn-lleno" data-wa-link target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+          <a class="btn btn-linea-claro" id="mapaBtn" target="_blank" rel="noopener">Cómo llegar</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────  reseñas  ─────────────────────────────── -->
+  <section class="resenas" id="resenas">
+    <div class="seccion-cabeza">
+      <div>
+        <p class="antetitulo antetitulo-oscuro">Lo que dicen</p>
+        <h2>Antes de pedir, escuchá al barrio</h2>
+      </div>
+      <a class="resenas-google" id="linkGoogle" target="_blank" rel="noopener">
+        <span class="resenas-puntaje" id="puntajeGoogle">4,9</span>
+        <span class="resenas-google-txt">
+          <span class="estrellas" aria-hidden="true">★★★★★</span>
+          <span id="cantidadGoogle">27 reseñas en Google</span>
+        </span>
+      </a>
+    </div>
+    <div class="resenas-grilla" id="resenasGrilla"></div>
+  </section>
+
+  <!-- ────────────────────────────────  faq  ───────────────────────────────── -->
+  <section class="faq" id="faq">
+    <div class="seccion-cabeza">
+      <div>
+        <p class="antetitulo antetitulo-oscuro">Antes de escribirnos</p>
+        <h2>Preguntas frecuentes</h2>
+      </div>
+      <p class="seccion-nota">¿No está lo que buscabas? Escribinos directo <a class="faq-wa-link" data-wa-link target="_blank" rel="noopener">por WhatsApp</a>.</p>
+    </div>
+    <div class="faq-lista" id="faqLista"></div>
+  </section>
+
+</main>
+
+<!-- ──────────────────────────────  footer  ─────────────────────────────── -->
+<footer class="pie">
+  <div class="pie-in">
+    <div class="pie-marca">
+      <span class="marca-nombre chico" data-campo="nombre">Bravo</span>
+      <span class="marca-bajada" data-campo="bajada">pizza al corte · desde el barrio</span>
+    </div>
+    <nav class="pie-links" aria-label="Enlaces del pie">
+      <a href="#promos">Promos</a><a href="#carta">Menú</a><a href="#local">El local</a><a href="#resenas">Reseñas</a><a href="#faq">Preguntas</a>
+    </nav>
+    <p class="pie-legal"><span data-campo="direccion">Lavalle 2139, José C. Paz</span> · <a data-wa-link data-wa-numero target="_blank" rel="noopener">11 7640 4401</a> · <span id="anio"></span><br>Menú digital · los precios pueden cambiar sin aviso y se confirman al hacer el pedido.</p>
+  </div>
+</footer>
+
+<a class="wa-flota" data-wa-link target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2m0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.23 8.23 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23m4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-2-1.24-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.4-.42-.56-.43h-.47c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.03s.88 2.35 1 2.51c.12.17 1.72 2.64 4.18 3.7.58.25 1.04.4 1.4.52.59.19 1.12.16 1.55.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.29"/></svg>
+</a>
+
+<div class="velo" id="velo" hidden></div>
+<div class="modal-wrap" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitulo" hidden><div class="modal" id="modalCard"></div></div>
+<aside class="pedido" id="pedido" role="dialog" aria-modal="true" aria-label="Tu pedido" hidden></aside>
+<div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+
+<script src="/js/catalogo.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>
