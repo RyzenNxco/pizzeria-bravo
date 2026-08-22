@@ -421,17 +421,21 @@ a { color: inherit; }
 }
 @media (min-width: 780px) { .sellos { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
 .sello {
-  padding: 26px 24px;
+  position: relative;
+  padding: 26px 24px 24px; margin-top: 20px;
   background: var(--papel); border: 1px solid var(--linea);
   border-radius: var(--r); box-shadow: var(--s1);
 }
-.sello-ico {
-  display: flex; align-items: center; justify-content: center;
-  width: 42px; height: 42px; margin-bottom: 16px;
-  border-radius: 12px; background: var(--tomate-suave); color: var(--tomate);
+/* el sello queda medio afuera de la tarjeta, como estampado sobre el papel */
+.sello-medalla {
+  position: absolute; top: -20px; left: 22px;
+  width: 56px; height: 56px;
+  filter: drop-shadow(0 6px 10px rgba(26, 17, 11, .22));
+  transform: rotate(-7deg);
 }
-.sello-ico svg { width: 22px; height: 22px; }
-.sello h3 { font-size: 20px; margin-bottom: 7px; }
+.sello-medalla-b { transform: rotate(5deg); }
+.sello-medalla-c { transform: rotate(-4deg); }
+.sello h3 { font-size: 20px; margin: 20px 0 7px; }
 .sello p { font-size: 14px; color: var(--humo); line-height: 1.58; }
 
 /* ───────────────────────────────  promos  ────────────────────────────────── */
